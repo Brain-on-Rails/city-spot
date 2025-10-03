@@ -7,4 +7,4 @@ The project is in its early stage and currently focuses on adding and displaying
 Work in progress...
 
 ## Wireframes
-[basic wireframes](docs/wireframes/citySpot.html)
+[basic wireframes](https://brain-on-rails.github.io/city-spot/wireframes/)
