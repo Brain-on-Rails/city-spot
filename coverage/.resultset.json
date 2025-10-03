@@ -1,13 +1,9 @@
 {
   "RSpec": {
     "coverage": {
-      "/home/greg/rubymineProjects/city-spot/app/models/place.rb": {
+      "/home/greg/rubymineProjects/city-spot/app/models/list_place.rb": {
         "lines": [
           1,
-          1,
-          1,
-          1,
-          null,
           1,
           1,
           null
@@ -15,6 +11,29 @@
       },
       "/home/greg/rubymineProjects/city-spot/app/models/application_record.rb": {
         "lines": [
+          1,
+          1,
+          null
+        ]
+      },
+      "/home/greg/rubymineProjects/city-spot/app/models/list.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null
+        ]
+      },
+      "/home/greg/rubymineProjects/city-spot/app/models/place.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          null,
           1,
           1,
           null
@@ -48,29 +67,8 @@
           1,
           null
         ]
-      },
-      "/home/greg/rubymineProjects/city-spot/app/models/list.rb": {
-        "lines": [
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0
-        ],
-        "branches": {}
-      },
-      "/home/greg/rubymineProjects/city-spot/app/models/list_place.rb": {
-        "lines": [
-          0,
-          0,
-          0,
-          0
-        ],
-        "branches": {}
       }
     },
-    "timestamp": 1759477766
+    "timestamp": 1759485480
   }
 }

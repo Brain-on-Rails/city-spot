@@ -114,14 +114,16 @@ end
 
 
 
-# Capybara.register_driver :selenium_chrome do |app|
-#   options = Selenium::WebDriver::Chrome::Options.new
-  # options.add_argument('--disable-gpu')
-  # options.add_argument('--window-size=1400,900')
-#   Capybara::Selenium::Driver.new(app, browser: :chrome, options: options)
-# end
-#
 Selenium::WebDriver::Chrome::Service.driver_path = "/usr/bin/chromedriver"
-#
-Capybara.javascript_driver = :selenium_chrome
 
+Capybara.register_driver :selenium_chrome_mobile do |app|
+  options = Selenium::WebDriver::Chrome::Options.new
+
+  options.add_argument("--window-size=412,915") # iPhone X
+  options.add_argument("--user-agent=Mozilla/5.0 (Linux; Android 10; Mobile) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Mobile Safari/537.36")
+
+  Capybara::Selenium::Driver.new(app, browser: :chrome, options: options)
+
+end
+
+# Capybara.javascript_driver = :selenium_chrome_mobile
