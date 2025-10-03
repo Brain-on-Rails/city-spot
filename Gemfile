@@ -49,7 +49,15 @@ group :development, :test do
   gem 'shoulda-matchers', '~> 6.0'
   gem "rspec-rails", "~> 8.0"
 
+  gem "capybara"
+
+  gem "selenium-webdriver"
+
   gem 'simplecov', require: false
+
+  gem 'faker'
+
+  gem "factory_bot_rails"
 end
 
 group :development do
