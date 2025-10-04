@@ -12,6 +12,7 @@
   "dependencies": {
     "@hotwired/stimulus": "^3.2.2",
     "@hotwired/turbo-rails": "^8.0.18",
+    "daisyui": "^5.1.26",
     "leaflet": "^1.9.4",
     "svelte": "^5.39.7"
   }
