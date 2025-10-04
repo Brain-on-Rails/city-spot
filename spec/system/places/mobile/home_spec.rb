@@ -1,9 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe "Home page", type: :system do
+RSpec.describe "Home page", type: :system, mobile: true do
   before do
-    driven_by(:selenium_chrome_mobile)
-
     visit root_path
   end
 

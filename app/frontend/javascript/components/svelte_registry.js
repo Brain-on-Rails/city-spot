@@ -2,8 +2,8 @@ import {mount, unmount} from "svelte";
 
 const registry = new Map();
 
-export function registerComponent(selector, Component, props = {}) {
-  registry.set(selector, { Component, props, instance: null });
+export function registerComponent(selector, Component) {
+  registry.set(selector, { Component, instance: null });
   mountComponent(selector);
 }
 
@@ -34,10 +34,23 @@ function mountComponent(selector) {
     if (isEntryAlreadyMounted(selector)) return;
 
     const target = document.querySelector(selector);
+
+    const props = Object.fromEntries(
+        Object.entries(target.dataset).map(([key, value]) => [key, parseDataValue(value)])
+    )
+
     if (target)
-        entry.instance = mount(entry.Component, { target, props: entry.props });
+        entry.instance = mount(entry.Component, { target, props: props });
 }
 
 function isEntryRegistered(selector) { return registry.has(selector); }
 function isEntryNotRegistered(selector) { return !registry.has(selector); }
 function isEntryAlreadyMounted(selector) { return registry.get(selector)?.instance; }
+
+function parseDataValue(value) {
+    if (value === "true") return true;
+    if (value === "false") return false;
+    if (/^-?\d+$/.test(value)) return parseInt(value, 10);
+    if (!isNaN(value)) return parseFloat(value);
+    return value;
+}

@@ -1,0 +1,21 @@
+<%= form_with model: place, class: "p-4 shadow-md bg-base-200 mx-4" do |f| %>
+
+  <fieldset class="fieldset mx-auto bg-base-100 border-base-300 rounded-box w-xs border p-4">
+    <legend class="fieldset-legend">Coordinates</legend>
+
+    <div class="form-control">
+      <%= f.label :latitude, class: "label" %>
+      <%= f.number_field :latitude, class: "input input-sm", min: -90, max: 90 %>
+    </div>
+
+    <div class="form-control">
+      <%= f.label :longitude, class: "label" %>
+      <%= f.number_field :longitude, class: "input input-sm", min: -180, max: 180 %>
+    </div>
+
+  </fieldset>
+
+  <div class="form-control my-6 text-center">
+    <%= f.submit class: "btn btn-success" %>
+  </div>
+<% end %>

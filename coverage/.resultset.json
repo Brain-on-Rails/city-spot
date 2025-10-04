@@ -10,7 +10,7 @@
           null,
           null,
           1,
-          0,
+          5,
           null
         ]
       },
@@ -22,13 +22,41 @@
           null
         ]
       },
+      "/home/greg/rubymineProjects/city-spot/app/models/place.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          5,
+          null,
+          null,
+          1,
+          5,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          null
+        ]
+      },
       "/home/greg/rubymineProjects/city-spot/app/models/application_record.rb": {
         "lines": [
-          0,
-          0,
-          0
-        ],
-        "branches": {}
+          1,
+          1,
+          null
+        ]
       },
       "/home/greg/rubymineProjects/city-spot/app/models/list.rb": {
         "lines": [
@@ -51,20 +79,6 @@
         ],
         "branches": {}
       },
-      "/home/greg/rubymineProjects/city-spot/app/models/place.rb": {
-        "lines": [
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          0
-        ],
-        "branches": {}
-      },
       "/home/greg/rubymineProjects/city-spot/app/models/user.rb": {
         "lines": [
           0,
@@ -80,6 +94,6 @@
         "branches": {}
       }
     },
-    "timestamp": 1759578690
+    "timestamp": 1759592907
   }
 }
