@@ -1,7 +1,12 @@
 
 import "@hotwired/turbo-rails"
 import '../javascript/controllers'
-import '../javascript/components'
+import {registerComponent} from '../javascript/components/svelte_registry.js'
+
+import Map from '../javascript/components/Map.svelte'
+
+// [SVELTE] Register the component with the registry and initialize it:
+registerComponent('#svelte-map', Map);
 
 
 // To see this message, add the following to the `<head>` section in your

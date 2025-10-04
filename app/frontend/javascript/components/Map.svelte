@@ -25,7 +25,8 @@ onDestroy(() => {
 
 <style>
     .map {
-        height: 80vh;
+        height: calc(100dvh - (4rem + env(safe-area-inset-bottom)));
         width: 100vw;
+        z-index: 0;
     }
 </style>
