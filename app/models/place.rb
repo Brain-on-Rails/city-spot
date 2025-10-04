@@ -6,4 +6,20 @@ class Place < ApplicationRecord
   validates :name, presence: true, uniqueness: { case_sensitive: false }
   validates :geom, presence: true
 
+  def latitude
+    geom&.y
+  end
+
+  def longitude
+    geom&.x
+  end
+
+  def latitude=(value)
+    self.geom = FACTORY_GEOM.point(longitude, value)
+  end
+
+  def longitude=(value)
+    self.geom = FACTORY_GEOM.point(value, latitude)
+  end
+
 end

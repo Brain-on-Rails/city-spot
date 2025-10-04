@@ -1,8 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe "Navbar", type: :system do
+RSpec.describe "Navbar", type: :system, mobile: true do
   before do
-    driven_by(:selenium_chrome_mobile)
     visit root_path
   end
 

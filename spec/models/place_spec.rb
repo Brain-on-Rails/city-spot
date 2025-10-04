@@ -19,4 +19,24 @@ RSpec.describe Place, type: :model do
     expect(place.geom.x).to eq(1.20)
     expect(place.geom.y).to eq(39.23)
   end
+
+  describe "virtual attributes latitude/longitude" do
+    it "sets and gets latitude" do
+      place = Place.new
+      place.latitude = 1.20
+      expect(place.latitude).to eq(1.20)
+    end
+    it "sets and gets longitude" do
+      place = Place.new
+      place.longitude = 39.23
+      expect(place.longitude).to eq(39.23)
+    end
+    it "updates geom correctly when latitude/longitude are set" do
+      place = Place.new
+      place.latitude = 1.20
+      place.longitude = 39.23
+      expect(place.geom.y).to eq(1.20)
+      expect(place.geom.x).to eq(39.23)
+    end
+  end
 end
