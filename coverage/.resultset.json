@@ -1,27 +1,6 @@
 {
   "RSpec": {
     "coverage": {
-      "/home/greg/rubymineProjects/city-spot/app/controllers/places_controller.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          null,
-          null,
-          null,
-          1,
-          5,
-          null
-        ]
-      },
-      "/home/greg/rubymineProjects/city-spot/app/controllers/application_controller.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          null
-        ]
-      },
       "/home/greg/rubymineProjects/city-spot/app/models/place.rb": {
         "lines": [
           1,
@@ -33,19 +12,19 @@
           1,
           null,
           1,
-          5,
+          3,
           null,
           null,
           1,
-          5,
+          3,
           null,
           null,
           1,
-          0,
+          2,
           null,
           null,
           1,
-          0,
+          2,
           null,
           null,
           null
@@ -58,20 +37,50 @@
           null
         ]
       },
-      "/home/greg/rubymineProjects/city-spot/app/models/list.rb": {
+      "/home/greg/rubymineProjects/city-spot/app/models/user.rb": {
         "lines": [
-          0,
-          0,
-          0,
-          0,
+          1,
+          1,
+          1,
           null,
-          0,
-          0
-        ],
-        "branches": {}
+          1,
+          1,
+          null,
+          1
+        ]
       },
       "/home/greg/rubymineProjects/city-spot/app/models/list_place.rb": {
         "lines": [
+          1,
+          1,
+          1,
+          null
+        ]
+      },
+      "/home/greg/rubymineProjects/city-spot/app/models/list.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null
+        ]
+      },
+      "/home/greg/rubymineProjects/city-spot/app/controllers/application_controller.rb": {
+        "lines": [
+          0,
+          null,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
           0,
           0,
           0,
@@ -79,21 +88,39 @@
         ],
         "branches": {}
       },
-      "/home/greg/rubymineProjects/city-spot/app/models/user.rb": {
+      "/home/greg/rubymineProjects/city-spot/app/controllers/places_controller.rb": {
         "lines": [
           0,
+          null,
+          0,
+          null,
+          0,
+          null,
+          0,
           0,
           0,
           null,
           0,
           0,
           null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          0,
+          0,
+          0,
           0,
           0
         ],
         "branches": {}
       }
     },
-    "timestamp": 1759592907
+    "timestamp": 1759671510
   }
 }

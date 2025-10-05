@@ -5,6 +5,8 @@ RSpec.describe Place, type: :model do
   it { should validate_presence_of(:name) }
   it { should validate_uniqueness_of(:name).case_insensitive }
   it { should validate_presence_of(:geom) }
+  it { should validate_length_of(:name).is_at_most(255) }
+  it { should validate_length_of(:name).is_at_least(3) }
 
   let(:user) { User.create!(name: "user", email: "user@example.org")}
   let(:factory) { RGeo::Geographic.spherical_factory(srid: 4326) }

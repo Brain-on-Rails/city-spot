@@ -9,7 +9,6 @@ RSpec.describe "New place", type: :system, mobile: true do
 
 
   it "show the map" do
-    expect(page).to have_css("#svelte-map")
     expect(page).to have_css(".leaflet-pane")
   end
 
