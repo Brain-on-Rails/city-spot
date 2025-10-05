@@ -2,6 +2,9 @@
   "name": "city_spot",
   "private": true,
   "type": "module",
+  "scripts": {
+    "test": "vitest"
+  },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^6.2.1",
     "@testing-library/jest-dom": "^6.9.1",
