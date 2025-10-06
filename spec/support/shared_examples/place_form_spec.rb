@@ -10,6 +10,10 @@ RSpec.shared_examples 'place form' do
     expect(page).to have_field("place[name]", type: "text")
   end
 
+  it "requires name" do
+    expect(page).to have_selector("input[name='place[name]'][required]")
+  end
+
   it "requires name to be at least 3 characters" do
     expect(page).to have_selector("input[name='place[name]'][minlength='3']")
   end
