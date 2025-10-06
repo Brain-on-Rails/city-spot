@@ -17,7 +17,7 @@ require 'capybara/rspec'
 # it.
 
 
-Dir[Rails.root.join('spec/support/**/*.rb')].sort.each { |f| require f }
+# Dir[Rails.root.join('spec/support/**/*.rb')].sort.each { |f| require f }
 
 #
 # See https://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration

@@ -77,3 +77,9 @@ RSpec.configure do |config|
     driven_by(:selenium_chrome_mobile)
   end
 end
+
+RSpec.configure do |config|
+  config.before(:each) do
+    Rails.application.routes.default_url_options[:locale] = I18n.locale
+  end
+end
