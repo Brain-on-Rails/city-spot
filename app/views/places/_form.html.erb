@@ -1,21 +1,21 @@
-<%= form_with model: place, class: "p-4 shadow-md bg-base-200 mx-4" do |f| %>
+<%= form_with model: place, data: { mapTarget: :form }, class: "p-4 shadow-md bg-base-200 mx-4" do |f| %>
 
-  <fieldset class="fieldset mx-auto bg-base-100 border-base-300 rounded-box w-xs border p-4">
+  <fieldset class="fieldset mx-auto bg-base-100 border-base-300 rounded-box w-auto border p-4">
     <legend class="fieldset-legend">Coordinates</legend>
 
     <div class="form-control">
       <%= f.label :latitude, class: "label" %>
-      <%= f.number_field :latitude, class: "input input-sm validator", min: -90, step: "any", max: 90, required: true %>
+      <%= f.number_field :latitude, data: {map_target: "lat"}, class: "input input-sm validator", min: -90, step: "any", max: 90, required: true %>
     </div>
 
     <div class="form-control">
       <%= f.label :longitude, class: "label" %>
-      <%= f.number_field :longitude, class: "input input-sm validator", min: -180, step: "any", max: 180, required: true %>
+      <%= f.number_field :longitude, data: {map_target: "lng"}, class: "input input-sm validator", min: -180, step: "any", max: 180, required: true %>
     </div>
 
   </fieldset>
 
-  <fieldset class="fieldset mx-auto bg-base-100 border-base-300 rounded-box w-xs border p-4">
+  <fieldset class="fieldset mx-auto bg-base-100 border-base-300 rounded-box w-auto border p-4">
     <legend class="fieldset-legend">Details</legend>
     <div class="form-control">
       <%= f.label :name, class: "label" %>

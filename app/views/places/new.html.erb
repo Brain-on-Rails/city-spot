@@ -1,5 +1,11 @@
 
-<div data-controller="map" data-map-fullscreen-value="false"></div>
+<div data-controller="map"
+     data-map-clickable-value="true"
+     data-map-fullscreen-value="false">
 
-<%= render partial: 'form', locals: { place: @place } %>
+  <div data-map-target="mapContainer"></div>
+
+  <%= render partial: 'form', locals: { place: @place } %>
+</div>
+
 
