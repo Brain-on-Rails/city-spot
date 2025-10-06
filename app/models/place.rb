@@ -3,23 +3,26 @@ class Place < ApplicationRecord
   has_many :lists, through: :list_places
   belongs_to :creator, class_name: "User"
 
-  validates :name, presence: true, uniqueness: { case_sensitive: false }, length: { maximum: 255, minimum: 3 }
+  validates :name, presence: true, length: { maximum: 255, minimum: 3 }, uniqueness: { case_sensitive: false }
+  validates :description, length: { maximum: 1000 }
   validates :geom, presence: true
 
-  def latitude
-    geom&.y
-  end
+  validates :latitude, presence: true, numericality: { greater_than_or_equal_to: -90, less_than_or_equal_to: 90 }
+  validates :longitude, presence: true, numericality: { greater_than_or_equal_to: -180, less_than_or_equal_to: 180 }
 
-  def longitude
-    geom&.x
-  end
 
-  def latitude=(value)
-    self.geom = FACTORY_GEOM.point(longitude, value)
-  end
+  attr_accessor :latitude, :longitude
+  before_validation :update_geom
 
-  def longitude=(value)
-    self.geom = FACTORY_GEOM.point(value, latitude)
+  # def geom=(value)
+  #   raise ArgumentError, "Use latitude and longitude instead of setting geom directly"
+  # end
+
+  private
+
+  def update_geom
+    return if latitude.blank? || longitude.blank?
+    self[:geom] = FACTORY_GEOM.point(latitude, longitude)
   end
 
 end

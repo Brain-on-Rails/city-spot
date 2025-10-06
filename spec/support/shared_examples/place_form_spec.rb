@@ -1,5 +1,11 @@
 
 RSpec.shared_examples 'place form' do
+
+  def submit_form
+    find("form input[type='submit']").click
+  end
+
+
   it "shows the form" do
     expect(page).to have_css("form")
   end
@@ -9,24 +15,40 @@ RSpec.shared_examples 'place form' do
     expect(page).to have_field("place[name]", type: "text")
   end
 
-  it "requires name" do
-    expect(page).to have_selector("input[name='place[name]'][required]")
+  it "shows error if name is not present" do
+    submit_form
+    within "#errors_for_name" do
+    expect(page).to have_content(I18n.t("errors.messages.blank"))
+    end
   end
 
-  it "requires name to be at least 3 characters" do
-    expect(page).to have_selector("input[name='place[name]'][minlength='3']")
+  it "shows error if name is too short" do
+    page.fill_in("place[name]", with: "ab")
+    submit_form
+    within "#errors_for_name" do
+      expect(page).to have_content(I18n.t("errors.messages.too_short", count: 3))
+    end
   end
 
-  it "requires name to be at most 255 characters" do
-    expect(page).to have_selector("input[name='place[name]'][maxlength='255']")
+  it "shows error if name is too long" do
+    page.fill_in("place[name]", with: "a" * 260)
+    submit_form
+    within "#errors_for_name" do
+      expect(page).to have_content(I18n.t("errors.messages.too_long", count: 255))
+    end
   end
+
 
   it "has a description field" do
     expect(page).to have_field("place[description]", type: "textarea")
   end
 
-  it "requires description to be at most 1000 characters" do
-    expect(page).to have_selector("textarea[name='place[description]'][maxlength='1000']")
+  it "shows error if description is too long" do
+    page.fill_in("place[description]", with: "a" * 1001)
+    submit_form
+    within "#errors_for_description" do
+      expect(page).to have_content(I18n.t("errors.messages.too_long", count: 1000))
+    end
   end
 
   describe "coordinates" do
@@ -38,26 +60,49 @@ RSpec.shared_examples 'place form' do
       expect(page).to have_field("place[latitude]", type: "number")
     end
 
-    it "requires latitude" do
-      expect(page).to have_selector("input[name='place[latitude]'][required]")
+    it "shows error if latitude is not present" do
+      submit_form
+      within "#errors_for_latitude" do
+        expect(page).to have_content(I18n.t("errors.messages.blank"))
+      end
     end
 
-    it "requires longitude" do
-      expect(page).to have_selector("input[name='place[longitude]'][required]")
+    it "shows error if latitude is gt 90" do
+      fill_in("place[latitude]", with: "91")
+      submit_form
+      within "#errors_for_latitude" do
+        expect(page).to have_content(I18n.t("errors.messages.less_than_or_equal_to", count: 90))
+        end
     end
 
-    it "has a latitude input with proper range" do
-      latitude_input = find("input[name='place[latitude]']")
-      expect(latitude_input["min"]).to eq("-90")
-      expect(latitude_input["max"]).to eq("90")
-      expect(latitude_input["step"]).to eq("any")
+    it "shows error if latitude is lt -90" do
+      fill_in("place[latitude]", with: "-91")
+      submit_form
+      within "#errors_for_latitude" do
+        expect(page).to have_content(I18n.t("errors.messages.greater_than_or_equal_to", count: -90))
+        end
     end
 
-    it "has a longitude input with proper range" do
-      longitude_input = find("input[name='place[longitude]']")
-      expect(longitude_input["min"]).to eq("-180")
-      expect(longitude_input["max"]).to eq("180")
-      expect(longitude_input["step"]).to eq("any")
+    it "shows error if longitude is not present" do
+      submit_form
+      within "#errors_for_longitude" do
+        expect(page).to have_content(I18n.t("errors.messages.blank"))
+        end
+    end
+
+    it "shows error if longitude is gt 180" do
+      fill_in("place[longitude]", with: "181")
+      submit_form
+      within "#errors_for_longitude" do
+        expect(page).to have_content(I18n.t("errors.messages.less_than_or_equal_to", count: 180))
+        end
+    end
+    it "shows error if longitude is lt -180" do
+      fill_in("place[longitude]", with: "-181")
+      submit_form
+      within "#errors_for_longitude" do
+        expect(page).to have_content(I18n.t("errors.messages.greater_than_or_equal_to", count: -180))
+        end
     end
 
   end
