@@ -1,4 +1,3 @@
-require 'rails_helper'
 
 RSpec.shared_examples 'place form' do
   it "shows the form" do
@@ -66,4 +65,5 @@ RSpec.shared_examples 'place form' do
   it "has a submit button" do
     expect(page).to have_css("form input[type='submit']")
   end
+
 end
