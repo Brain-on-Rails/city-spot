@@ -2,16 +2,20 @@
     import {onMount, onDestroy} from 'svelte';
     import L from 'leaflet';
     import 'leaflet/dist/leaflet.css';
+    import {coordinates} from './mapSignal.svelte.js'
 
 
-    export let root;
-    export let fullscreen = true;
-    export let clickable = false;
+    let {
+        root,
+        fullscreen = true,
+        clickable = false,
+    } = $props();
 
     let map;
     let mapContainer;
     let marker;
     const url = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+    let debounceTimer;
 
     onMount(() => {
         map = L.map(mapContainer).setView([51.505, -0.09], 13);
@@ -23,9 +27,19 @@
         if (clickable) enableMapClickInteraction();
     })
 
+    $effect(() => {
+        const {lat, lng} = coordinates;
+        clearTimeout(debounceTimer);
+        if (lat && lng) {
+            debounceTimer = setTimeout(() => {
+                updateMarker(lat, lng);
+            }, 1000)
+        }
+    })
+
     function enableMapClickInteraction() {
         map.on('click', (e) => {
-            addMarker(e.latlng.lat, e.latlng.lng);
+            updateMarker(e.latlng.lat, e.latlng.lng);
             root.dispatchEvent(
                 new CustomEvent('map:add-marker', {
                     detail: {
@@ -37,11 +51,12 @@
         });
     }
 
-    function addMarker(lat, lng) {
+    function updateMarker(lat, lng) {
         if (marker) {
             map.removeLayer(marker);
         }
         marker = L.marker([lat, lng]).addTo(map);
+        map.setView([lat, lng], map.getZoom());
     }
 
     onDestroy(() => {

@@ -10,16 +10,16 @@
           null,
           null,
           1,
-          16,
+          1,
           null,
           null,
           1,
-          10,
-          null,
-          10,
           0,
           null,
-          10,
+          0,
+          0,
+          null,
+          0,
           null,
           null,
           null,
@@ -27,7 +27,7 @@
           null,
           1,
           1,
-          10,
+          0,
           null
         ]
       },
@@ -40,12 +40,12 @@
           1,
           null,
           1,
-          26,
+          1,
           null,
           null,
           1,
           1,
-          26,
+          1,
           null,
           null
         ]
@@ -75,7 +75,7 @@
           1,
           null,
           1,
-          10,
+          0,
           0,
           null,
           null,
@@ -87,18 +87,6 @@
           1,
           1,
           null
-        ]
-      },
-      "/home/greg/rubymineProjects/city-spot/app/models/user.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          null,
-          1,
-          1,
-          null,
-          1
         ]
       },
       "/home/greg/rubymineProjects/city-spot/app/models/list.rb": {
@@ -121,8 +109,22 @@
           0
         ],
         "branches": {}
+      },
+      "/home/greg/rubymineProjects/city-spot/app/models/user.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0
+        ],
+        "branches": {}
       }
     },
-    "timestamp": 1759773146
+    "timestamp": 1759823237
   }
 }

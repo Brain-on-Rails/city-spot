@@ -1,17 +1,17 @@
-<%= form_with model: place, data: { mapTarget: :form }, html: { novalidate: true }, class: "p-4 shadow-md bg-base-200 mx-4" do |f| %>
+<%= form_with model: place, data: { "map-target": :form }, html: { novalidate: true }, class: "p-4 shadow-md bg-base-200 mx-4" do |f| %>
 
   <fieldset class="fieldset mx-auto bg-base-100 border-base-300 rounded-box w-auto border p-4">
     <legend class="fieldset-legend">Coordinates</legend>
 
     <div class="flex flex-col">
       <%= f.label :latitude, class: "label" %>
-      <%= f.number_field :latitude, data: {map_target: "lat"}, class: "input w-full input-sm " %>
+      <%= f.number_field :latitude, data: {"map-target": "lat"}, class: "input w-full input-sm " %>
       <%= render_field_errors(:latitude, place.errors[:latitude]) %>
     </div>
 
     <div class="flex flex-col">
       <%= f.label :longitude, class: "label" %>
-      <%= f.number_field :longitude, data: {map_target: "lng"}, class: "input w-full input-sm " %>
+      <%= f.number_field :longitude, data: {"map-target": "lng"}, class: "input w-full input-sm " %>
       <%= render_field_errors(:longitude, place.errors[:longitude]) %>
     </div>
 
