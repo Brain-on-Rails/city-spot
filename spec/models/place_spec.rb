@@ -38,17 +38,12 @@ RSpec.describe Place, type: :model do
     end
 
     it "is invalid with images over 5MB" do
-      large_file = Tempfile.new(["large_file", ".jpg"])
-      large_file.binmode
-      large_file.write("a" * 6.megabytes)
-      large_file.rewind
-      file = fixture_file_upload(large_file, "image/jpg")
-      place_created.images.attach(file)
-      expect(place_created).to_not be_valid
-      expect(place_created.errors[:images]).to_not be_empty
-
-      large_file.close
-      large_file.unlink
+      with_temp_image(size_in_mb: 6) do |path, uploaded_file, name, content_type|
+        img = fixture_file_upload(path, content_type)
+        place_created.images.attach(img)
+        expect(place_created).to_not be_valid
+        expect(place_created.errors[:images]).to_not be_empty
+      end
     end
 
     it "is invalid if more than 8 images are attached" do

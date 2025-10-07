@@ -130,4 +130,6 @@ Capybara.register_driver :selenium_chrome_mobile do |app|
 
 end
 
-# Capybara.javascript_driver = :selenium_chrome_mobile
+RSpec.configure do |config|
+  config.include FileHelpers
+end
