@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   resources :places, only: [:index, :new, :create, :show]
 
+  resources :uploads, only: [:create]
+
   root to: "places#index"
 
   # Render dynamic PWA files from app/views/pwa/* (remember to link manifest in application.html.erb)
