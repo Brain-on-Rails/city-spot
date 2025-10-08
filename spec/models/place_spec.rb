@@ -38,7 +38,7 @@ RSpec.describe Place, type: :model do
     end
 
     it "is invalid with images over 5MB" do
-      with_temp_image(size_in_mb: 6) do |path, uploaded_file, name, content_type|
+      with_temp_image(size_in_mb: 6) do |path, name, content_type|
         img = fixture_file_upload(path, content_type)
         place_created.images.attach(img)
         expect(place_created).to_not be_valid

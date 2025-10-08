@@ -26,7 +26,7 @@ class Place < ApplicationRecord
 
   def images_count_within_limit(limit)
     if images.attached? && images.count > limit
-      errors.add(:images, :too_many, count: limit)
+      errors.add(:images, :too_many, max: limit)
     end
   end
   def update_geom

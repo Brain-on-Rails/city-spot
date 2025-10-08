@@ -29,3 +29,9 @@
 
 en:
   hello: "Hello world"
+  activerecord:
+    errors:
+      messages:
+        content_type_invalid: "has an invalid content type"
+        size_range_exceeded: "file size must be less than %{max} MB (current size is %{actual} MB)"
+        too_many: "max number of files is %{max}"

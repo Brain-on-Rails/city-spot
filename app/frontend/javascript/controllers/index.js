@@ -9,3 +9,6 @@ application.register("hello", HelloController)
 
 import MapController from "./map_controller"
 application.register("map", MapController)
+
+import ImagesPreviewController from "./images_preview_controller"
+application.register("images-preview", ImagesPreviewController)

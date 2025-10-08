@@ -32,10 +32,12 @@ export default class extends Controller {
 
     listenToLatLngInputChanges() {
         this.latTarget.addEventListener('input', (event) => {
-            coordinates.lat = event.target.value;
+            coordinates.lat = this.latTarget.value
+            coordinates.lng = this.lngTarget.value
         })
         this.lngTarget.addEventListener('input', (event) => {
-            coordinates.lng = event.target.value;
+            coordinates.lat = this.latTarget.value
+            coordinates.lng = this.lngTarget.value
         })
     }
 

@@ -1,15 +1,12 @@
-
 RSpec.shared_examples 'place form' do
 
   def submit_form
     find("form input[type='submit']").click
   end
 
-
   it "shows the form" do
     expect(page).to have_css("form")
   end
-
 
   it "has a name field" do
     expect(page).to have_field("place[name]", type: "text")
@@ -18,7 +15,7 @@ RSpec.shared_examples 'place form' do
   it "shows error if name is not present" do
     submit_form
     within "#errors_for_name" do
-    expect(page).to have_content(I18n.t("errors.messages.blank"))
+      expect(page).to have_content(I18n.t("errors.messages.blank"))
     end
   end
 
@@ -38,7 +35,6 @@ RSpec.shared_examples 'place form' do
     end
   end
 
-
   it "has a description field" do
     expect(page).to have_field("place[description]", type: "textarea")
   end
@@ -48,6 +44,33 @@ RSpec.shared_examples 'place form' do
     submit_form
     within "#errors_for_description" do
       expect(page).to have_content(I18n.t("errors.messages.too_long", count: 1000))
+    end
+  end
+
+  describe "images" do
+    it "has an image field" do
+      expect(page).to have_field("place[images][]", type: "file")
+    end
+
+    it "shows error if image is too large" do
+      with_temp_image(size_in_mb: 6) do |path, name, content_type|
+        page.attach_file("place[images][]", path)
+        submit_form
+        within "#errors_for_images" do
+          expect(page).to have_content(I18n.t("activerecord.errors.messages.size_range_exceeded", max: 5, actual: 6))
+        end
+      end
+    end
+
+    it "shows error if more than 8 images are attached" do
+      with_temp_images(count: 9, size_in_mb: 1, filename: "file") do |paths|
+        page.attach_file("place[images][]", paths, make_visible: true)
+        submit_form
+        within "#errors_for_images" do
+          expect(page).to have_content(I18n.t("activerecord.errors.messages.too_many", max: 8))
+        end
+      end
+
     end
   end
 
@@ -72,7 +95,7 @@ RSpec.shared_examples 'place form' do
       submit_form
       within "#errors_for_latitude" do
         expect(page).to have_content(I18n.t("errors.messages.less_than_or_equal_to", count: 90))
-        end
+      end
     end
 
     it "shows error if latitude is lt -90" do
@@ -80,14 +103,14 @@ RSpec.shared_examples 'place form' do
       submit_form
       within "#errors_for_latitude" do
         expect(page).to have_content(I18n.t("errors.messages.greater_than_or_equal_to", count: -90))
-        end
+      end
     end
 
     it "shows error if longitude is not present" do
       submit_form
       within "#errors_for_longitude" do
         expect(page).to have_content(I18n.t("errors.messages.blank"))
-        end
+      end
     end
 
     it "shows error if longitude is gt 180" do
@@ -95,14 +118,14 @@ RSpec.shared_examples 'place form' do
       submit_form
       within "#errors_for_longitude" do
         expect(page).to have_content(I18n.t("errors.messages.less_than_or_equal_to", count: 180))
-        end
+      end
     end
     it "shows error if longitude is lt -180" do
       fill_in("place[longitude]", with: "-181")
       submit_form
       within "#errors_for_longitude" do
         expect(page).to have_content(I18n.t("errors.messages.greater_than_or_equal_to", count: -180))
-        end
+      end
     end
 
   end
