@@ -51,13 +51,13 @@ RSpec.describe PlaceUploadToken, type: :model do
     end
 
     it "returns false if uploads_count >= MAX_UPLOADS" do
-      tkn.max_uploads.times { tkn.increase_uploads_counter }
+      tkn.max_uploads.times { tkn.increase_uploads_counter! }
       tkn.reload
       expect(tkn.valid?).to be false
     end
 
     it "increments uploads_count" do
-      tkn.increase_uploads_counter
+      tkn.increase_uploads_counter!
       tkn.reload
       expect(tkn.uploads_count).to eq(1)
     end
@@ -75,7 +75,7 @@ RSpec.describe PlaceUploadToken, type: :model do
     end
 
     it "returns error message when max uploads reached" do
-      tkn.max_uploads.times { tkn.increase_uploads_counter }
+      tkn.max_uploads.times { tkn.increase_uploads_counter! }
       tkn.reload
       expect(tkn.valid?).to be false
       expect(tkn.errors.full_messages).to include("max uploads reached")

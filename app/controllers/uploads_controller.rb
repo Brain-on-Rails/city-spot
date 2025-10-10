@@ -1,6 +1,6 @@
 class UploadsController < ApplicationController
 
-  before_action :validate_token, only: [ :create ]
+  before_action :validate_and_set_token, only: [ :create ]
   before_action :ensure_file_is_present, only: [ :create ]
   before_action :accept_only_image_uploads, only: [ :create ]
   before_action :ensure_file_size_is_not_too_big, only: [ :create ]
@@ -10,6 +10,8 @@ class UploadsController < ApplicationController
       filename: params[:file]&.original_filename,
       content_type: params[:file]&.content_type
     )
+
+    @token&.increase_uploads_counter!
 
     render json: {
       signed_id: blob.signed_id,
@@ -24,7 +26,7 @@ class UploadsController < ApplicationController
 
   private
 
-  def validate_token
+  def validate_and_set_token
     token = PlaceUploadToken.find_by(token: params[:token])
 
     unless token
@@ -35,11 +37,6 @@ class UploadsController < ApplicationController
       return render json: { errors: token.errors.full_messages }, status: :unauthorized
     end
     @token = token
-  end
-
-  def session_files_count_exceeded?
-    count = session[:place_draft]&.fetch(:images_count, 0)
-    count && count > 8
   end
 
   def ensure_file_size_is_not_too_big

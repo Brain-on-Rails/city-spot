@@ -25,10 +25,20 @@ RSpec.describe "Uploads", type: :request do
         expect(response.body).to include("token is expired")
       end
       it "response has error message when max uploads reached" do
-        token.max_uploads.times { token.increase_uploads_counter }
+        token.max_uploads.times { token.increase_uploads_counter! }
         post uploads_path, params: { file: file, token: token.token }
         expect(response).to have_http_status(:unauthorized)
         expect(response.body).to include("max uploads reached")
+      end
+
+      it "increases uploads_count on each upload" do
+        expect(token.uploads_count).to eq(0)
+        post uploads_path, params: { file: file, token: token.token }
+        token.reload
+        expect(token.uploads_count).to eq(1)
+        post uploads_path, params: { file: file, token: token.token }
+        token.reload
+        expect(token.uploads_count).to eq(2)
       end
 
     end
