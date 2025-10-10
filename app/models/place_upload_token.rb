@@ -3,7 +3,7 @@ class PlaceUploadToken < ApplicationRecord
 
   validate :validate_token
 
-  def increase_uploads_counter
+  def increase_uploads_counter!
     self.increment!(:uploads_count)
   end
 
