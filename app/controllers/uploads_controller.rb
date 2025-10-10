@@ -11,7 +11,6 @@ class UploadsController < ApplicationController
       content_type: params[:file]&.content_type
     )
 
-    @token&.increase_uploads_counter!
 
     render json: {
       signed_id: blob.signed_id,
@@ -28,13 +27,14 @@ class UploadsController < ApplicationController
 
   def validate_and_set_token
     token = PlaceUploadToken.find_by(token: params[:token])
-
     unless token
       return render json: { errors: ["invalid token"] }, status: :unauthorized
     end
-
-    unless token.valid?
-      return render json: { errors: token.errors.full_messages }, status: :unauthorized
+    token.with_lock do
+      unless token.valid?
+        return render json: { errors: token.errors.full_messages }, status: :unauthorized
+      end
+      token.increase_uploads_counter!
     end
     @token = token
   end
