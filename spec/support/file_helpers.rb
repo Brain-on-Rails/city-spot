@@ -24,7 +24,7 @@ module FileHelpers
       end
       path.to_s
     end
-    yield(paths)
+    yield(paths, filename, content_type)
   ensure
     paths.each do |path|
       File.delete(path) if File.exist?(path)
