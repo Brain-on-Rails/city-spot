@@ -15,8 +15,8 @@ RSpec.describe List, type: :model do
 
   it "can have many places" do
     list = @user.lists.create!(name: "list1")
-    place1 = list.places.create!(name: "place1", creator: @user, geom: FACTORY_GEOM.point(1.20, 55.23))
-    place2 = list.places.create!(name: "place2", creator: @user, geom: FACTORY_GEOM.point(1.21, -80.24))
+    place1 = list.places.create!(name: "place1", creator: @user, latitude: 1.20, longitude: 39.23)
+    place2 = list.places.create!(name: "place2", creator: @user, latitude: 12.20, longitude: 44.23)
 
     expect(list.places).to match_array([place1, place2])
   end
