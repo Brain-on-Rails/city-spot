@@ -65,10 +65,19 @@ group :development do
   gem "web-console"
 end
 
-gem "rspec-rails", "~> 8.0"
 
 gem "vite_rails", "~> 3.0"
 
 gem "turbo-rails", "~> 2.0"
 
 gem "stimulus-rails", "~> 1.3"
+
+gem "activerecord-postgis-adapter", "~> 11.0"
+
+gem "rgeo", "~> 3.0"
+
+gem "validates_email_format_of", "~> 1.8"
+
+gem "rails-i18n", "~> 8.0"
+
+gem "active_storage_validations", "~> 3.0"
