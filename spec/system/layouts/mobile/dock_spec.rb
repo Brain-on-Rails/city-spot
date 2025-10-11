@@ -21,6 +21,13 @@ RSpec.describe "Navbar", type: :system, mobile: true do
     end
   end
 
+  it "has link to home page" do
+    visit root_path
+    within ".dock" do
+      expect(page).to have_link(href: root_path)
+      end
+  end
+
   it "navigates to new place page when clicking the link" do
     visit root_path
     within ".dock" do
