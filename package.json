@@ -21,7 +21,7 @@
     "@hotwired/turbo-rails": "^8.0.18",
     "daisyui": "^5.1.26",
     "leaflet": "^1.9.4",
-    "photoswipe": "^5.4.4",
+    "lightgallery": "^2.9.0",
     "svelte": "^5.39.7"
   }
 }
