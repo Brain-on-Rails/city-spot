@@ -77,3 +77,7 @@ gem "activerecord-postgis-adapter", "~> 11.0"
 gem "rgeo", "~> 3.0"
 
 gem "validates_email_format_of", "~> 1.8"
+
+gem "rails-i18n", "~> 8.0"
+
+gem "active_storage_validations", "~> 3.0"

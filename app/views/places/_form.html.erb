@@ -1,0 +1,6 @@
+
+<%= render partial: 'form_body', locals: { place: place, form_id: form_id } %>
+
+<%= render partial: 'form_uploads', locals: { form_id: form_id, uploads_token: uploads_token, model_name: "place" } %>
+
+<%= render partial: 'form_submit', locals: { label: "Save", form_id: form_id  } %>

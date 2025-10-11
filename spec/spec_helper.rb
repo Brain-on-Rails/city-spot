@@ -16,6 +16,9 @@ require 'capybara/rspec'
 # the additional setup, and require it from the spec files that actually need
 # it.
 
+
+Dir[Rails.root.join('spec/support/**/*.rb')].sort.each { |f| require f }
+
 #
 # See https://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
@@ -119,6 +122,7 @@ Selenium::WebDriver::Chrome::Service.driver_path = "/usr/bin/chromedriver"
 Capybara.register_driver :selenium_chrome_mobile do |app|
   options = Selenium::WebDriver::Chrome::Options.new
 
+  # options.add_argument("--headless")
   options.add_argument("--window-size=412,915") # iPhone X
   options.add_argument("--user-agent=Mozilla/5.0 (Linux; Android 10; Mobile) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Mobile Safari/537.36")
 
@@ -126,4 +130,6 @@ Capybara.register_driver :selenium_chrome_mobile do |app|
 
 end
 
-# Capybara.javascript_driver = :selenium_chrome_mobile
+RSpec.configure do |config|
+  config.include FileHelpers
+end

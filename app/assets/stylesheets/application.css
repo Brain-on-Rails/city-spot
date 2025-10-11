@@ -8,3 +8,10 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+
+.virtual-space {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    min-height: 100px;
+}

@@ -1,7 +1,6 @@
 
 import "@hotwired/turbo-rails"
 import '../javascript/controllers'
-import '../javascript/components'
 
 
 // To see this message, add the following to the `<head>` section in your
