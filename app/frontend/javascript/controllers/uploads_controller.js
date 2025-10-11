@@ -1,10 +1,14 @@
 import { Controller } from "@hotwired/stimulus"
 import { mount, unmount } from "svelte";
-import Uploads from "@/javascript/components/Uploads.svelte";
+import Uploads from "@/javascript/components/uploads/Uploads.svelte";
 
 export default class extends Controller {
     static values = {
         formId: String,
+        csrfToken: String,
+        uploadsUrl: String,
+        uploadsToken: String,
+        modelName: String
     }
     static targets = ["container"]
 
@@ -14,6 +18,10 @@ export default class extends Controller {
             props: {
                 root: this.containerTarget,
                 formId: this.formIdValue,
+                csrfToken: this.csrfTokenValue,
+                uploadsUrl: this.uploadsUrlValue,
+                uploadsToken: this.uploadsTokenValue,
+                modelName: this.modelNameValue,
             }
         })
     }

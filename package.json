@@ -22,6 +22,7 @@
     "daisyui": "^5.1.26",
     "leaflet": "^1.9.4",
     "lightgallery": "^2.9.0",
-    "svelte": "^5.39.7"
+    "svelte": "^5.39.7",
+    "uuid": "^13.0.0"
   }
 }

@@ -7,6 +7,7 @@ class PlacesController < ApplicationController
   def new
     @place = Place.new
     @form_id = view_context.dom_id(@place, :form)
+    @uploads_token = PlaceUploadToken.create(expires_at: 1.hour.from_now, max_uploads: 100).token
   end
 
   def create
