@@ -44,12 +44,6 @@ GEM
       erubi (~> 1.11)
       rails-dom-testing (~> 2.2)
       rails-html-sanitizer (~> 1.6)
-    active_storage_validations (3.0.2)
-      activejob (>= 6.1.4)
-      activemodel (>= 6.1.4)
-      activestorage (>= 6.1.4)
-      activesupport (>= 6.1.4)
-      marcel (>= 1.0.3)
     activejob (8.0.3)
       activesupport (= 8.0.3)
       globalid (>= 0.3.6)
@@ -59,9 +53,6 @@ GEM
       activemodel (= 8.0.3)
       activesupport (= 8.0.3)
       timeout (>= 0.4.0)
-    activerecord-postgis-adapter (11.0.0)
-      activerecord (~> 8.0.0)
-      rgeo-activerecord (~> 8.0.0)
     activestorage (8.0.3)
       actionpack (= 8.0.3)
       activejob (= 8.0.3)
@@ -81,8 +72,6 @@ GEM
       securerandom (>= 0.3)
       tzinfo (~> 2.0, >= 2.0.5)
       uri (>= 0.13.1)
-    addressable (2.8.7)
-      public_suffix (>= 2.0.2, < 7.0)
     ast (2.4.3)
     base64 (0.3.0)
     bcrypt_pbkdf (1.1.1)
@@ -94,15 +83,6 @@ GEM
     brakeman (7.1.0)
       racc
     builder (3.3.0)
-    capybara (3.40.0)
-      addressable
-      matrix
-      mini_mime (>= 0.1.3)
-      nokogiri (~> 1.11)
-      rack (>= 1.6.0)
-      rack-test (>= 0.6.3)
-      regexp_parser (>= 1.5, < 3.0)
-      xpath (~> 3.2)
     concurrent-ruby (1.3.5)
     connection_pool (2.5.4)
     crass (1.0.6)
@@ -111,7 +91,6 @@ GEM
       irb (~> 1.10)
       reline (>= 0.3.8)
     diff-lcs (1.6.2)
-    docile (1.4.1)
     dotenv (3.1.8)
     drb (2.2.3)
     dry-cli (1.3.0)
@@ -120,13 +99,6 @@ GEM
     erubi (1.13.1)
     et-orbi (1.4.0)
       tzinfo
-    factory_bot (6.5.5)
-      activesupport (>= 6.1.0)
-    factory_bot_rails (6.5.1)
-      factory_bot (~> 6.5)
-      railties (>= 6.1.0)
-    faker (3.5.2)
-      i18n (>= 1.8.11, < 2)
     fugit (1.11.2)
       et-orbi (~> 1, >= 1.2.11)
       raabro (~> 1.4)
@@ -166,7 +138,6 @@ GEM
       net-pop
       net-smtp
     marcel (1.1.0)
-    matrix (0.4.3)
     mini_mime (1.1.5)
     minitest (5.25.5)
     msgpack (1.8.0)
@@ -219,7 +190,6 @@ GEM
     psych (5.2.6)
       date
       stringio
-    public_suffix (6.0.2)
     puma (7.0.4)
       nio4r (~> 2.0)
     raabro (1.4.0)
@@ -255,9 +225,6 @@ GEM
     rails-html-sanitizer (1.6.2)
       loofah (~> 2.21)
       nokogiri (>= 1.15.7, != 1.16.7, != 1.16.6, != 1.16.5, != 1.16.4, != 1.16.3, != 1.16.2, != 1.16.1, != 1.16.0.rc1, != 1.16.0)
-    rails-i18n (8.0.2)
-      i18n (>= 0.7, < 2)
-      railties (>= 8.0.0, < 9)
     railties (8.0.3)
       actionpack (= 8.0.3)
       activesupport (= 8.0.3)
@@ -275,11 +242,6 @@ GEM
     regexp_parser (2.11.3)
     reline (0.6.2)
       io-console (~> 0.5)
-    rexml (3.4.4)
-    rgeo (3.0.1)
-    rgeo-activerecord (8.0.0)
-      activerecord (>= 7.0)
-      rgeo (>= 3.0)
     rspec-core (3.13.5)
       rspec-support (~> 3.13.0)
     rspec-expectations (3.13.5)
@@ -326,23 +288,7 @@ GEM
       rubocop-performance (>= 1.24)
       rubocop-rails (>= 2.30)
     ruby-progressbar (1.13.0)
-    rubyzip (3.1.1)
     securerandom (0.4.1)
-    selenium-webdriver (4.35.0)
-      base64 (~> 0.2)
-      logger (~> 1.4)
-      rexml (~> 3.2, >= 3.2.5)
-      rubyzip (>= 1.2.2, < 4.0)
-      websocket (~> 1.0)
-    shoulda-matchers (6.5.0)
-      activesupport (>= 5.2.0)
-    simplecov (0.22.0)
-      docile (~> 1.1)
-      simplecov-html (~> 0.11)
-      simplecov_json_formatter (~> 0.1)
-    simplecov-html (0.13.2)
-    simplecov_json_formatter (0.1.4)
-    simpleidn (0.2.3)
     solid_cable (3.0.12)
       actioncable (>= 7.2)
       activejob (>= 7.2)
@@ -393,9 +339,6 @@ GEM
     unicode-emoji (4.1.0)
     uri (1.0.3)
     useragent (0.16.11)
-    validates_email_format_of (1.8.2)
-      i18n (>= 0.8.0)
-      simpleidn
     vite_rails (3.0.19)
       railties (>= 5.1, < 9)
       vite_ruby (~> 3.0, >= 3.2.2)
@@ -410,13 +353,10 @@ GEM
       activemodel (>= 6.0.0)
       bindex (>= 0.4.0)
       railties (>= 6.0.0)
-    websocket (1.2.11)
     websocket-driver (0.8.0)
       base64
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
-    xpath (3.2.0)
-      nokogiri (~> 1.8)
     zeitwerk (2.7.3)
 
 PLATFORMS
@@ -430,27 +370,17 @@ PLATFORMS
   x86_64-linux-musl
 
 DEPENDENCIES
-  active_storage_validations (~> 3.0)
-  activerecord-postgis-adapter (~> 11.0)
   bootsnap
   brakeman
-  capybara
   debug
-  factory_bot_rails
-  faker
   jbuilder
   kamal
   pg (~> 1.1)
   propshaft
   puma (>= 5.0)
   rails (~> 8.0.3)
-  rails-i18n (~> 8.0)
-  rgeo (~> 3.0)
   rspec-rails (~> 8.0)
   rubocop-rails-omakase
-  selenium-webdriver
-  shoulda-matchers (~> 6.0)
-  simplecov
   solid_cable
   solid_cache
   solid_queue
@@ -459,7 +389,6 @@ DEPENDENCIES
   thruster
   turbo-rails (~> 2.0)
   tzinfo-data
-  validates_email_format_of (~> 1.8)
   vite_rails (~> 3.0)
   web-console
 
